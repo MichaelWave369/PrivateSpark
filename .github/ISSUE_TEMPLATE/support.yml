@@ -1,0 +1,7 @@
+name: Support question
+description: Ask for setup/use help
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: Your question
