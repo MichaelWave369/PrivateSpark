@@ -1,0 +1,188 @@
+:root {
+  color-scheme: dark;
+  --bg: #090b14;
+  --bg-soft: #11162a;
+  --glass: rgba(23, 28, 47, 0.7);
+  --text: #edf0ff;
+  --muted: #a8b2d7;
+  --accent: #8c78ff;
+  --accent-2: #4bd5c0;
+  --border: rgba(255, 255, 255, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: radial-gradient(circle at 15% 15%, #26264f 0%, var(--bg) 44%), var(--bg);
+  color: var(--text);
+}
+
+.app-shell {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 1rem;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+.glass {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+}
+
+.sidebar {
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sidebar h1 { margin: 0; }
+.tagline { color: var(--muted); margin-top: -0.5rem; }
+
+nav h2, .system-card h3, .topbar h2, .wizard h3, .chat h3, .dropzone h3, .model-manager h3 {
+  margin: 0;
+}
+
+nav ul { list-style: none; padding: 0; margin: 0.7rem 0 0; }
+nav li {
+  padding: 0.6rem 0.8rem;
+  border-radius: 10px;
+  color: var(--muted);
+}
+nav li.active, nav li:hover { background: rgba(140, 120, 255, 0.2); color: var(--text); }
+
+.system-card {
+  margin-top: auto;
+  padding: 0.9rem;
+  background: rgba(75, 213, 192, 0.08);
+  border-radius: 12px;
+}
+.ok { color: var(--accent-2); }
+
+.main-content {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  gap: 1rem;
+}
+
+.topbar,
+.wizard,
+.chat,
+.dropzone,
+.model-manager {
+  padding: 1rem 1.1rem;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.topbar p { color: var(--muted); margin: 0.3rem 0 0; }
+.topbar-actions { display: flex; gap: 0.6rem; }
+
+button {
+  border: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text);
+  border-radius: 10px;
+  padding: 0.55rem 0.8rem;
+  cursor: pointer;
+}
+button:hover { border-color: var(--border); }
+.primary-btn { background: linear-gradient(120deg, var(--accent), #6aabff); }
+.secondary { background: transparent; border-color: var(--border); color: var(--muted); }
+
+.wizard ol { list-style: none; margin: 0.9rem 0 0; padding: 0; display: grid; gap: 0.7rem; }
+.wizard li {
+  display: grid;
+  grid-template-columns: 34px 1fr auto;
+  gap: 0.75rem;
+  align-items: center;
+  background: var(--bg-soft);
+  border-radius: 12px;
+  padding: 0.6rem;
+}
+.wizard span {
+  display: grid;
+  place-items: center;
+  height: 34px;
+  width: 34px;
+  border-radius: 10px;
+  background: rgba(140, 120, 255, 0.2);
+}
+.wizard p { margin: 0.25rem 0 0; color: var(--muted); }
+
+.workspace {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 1rem;
+}
+
+.chat { display: grid; grid-template-rows: auto 1fr auto; min-height: 440px; }
+.chat-header p { color: var(--muted); margin-top: 0.2rem; }
+.messages {
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  padding: 0.8rem 0;
+}
+.message {
+  padding: 0.75rem 0.85rem;
+  border-radius: 12px;
+  max-width: 92%;
+}
+.message.ai { background: rgba(75, 213, 192, 0.12); }
+.message.user { background: rgba(140, 120, 255, 0.2); margin-left: auto; }
+
+#chat-form { display: flex; gap: 0.6rem; }
+#chat-input {
+  flex: 1;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(10, 14, 30, 0.9);
+  color: var(--text);
+  padding: 0.65rem;
+}
+
+.panel-stack {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 1rem;
+}
+
+.dropzone {
+  border: 1px dashed rgba(140, 120, 255, 0.6);
+  text-align: center;
+  padding: 1.4rem 1rem;
+}
+.dropzone.dragover { background: rgba(140, 120, 255, 0.12); }
+.dropzone p { color: var(--muted); }
+
+.model-manager ul { list-style: none; margin: 0.7rem 0 0; padding: 0; display: grid; gap: 0.7rem; }
+.model-manager li {
+  background: var(--bg-soft);
+  border-radius: 12px;
+  padding: 0.7rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.75rem;
+  align-items: center;
+}
+.model-manager p { color: var(--muted); margin: 0.3rem 0 0; }
+
+@media (max-width: 1080px) {
+  .app-shell, .workspace { grid-template-columns: 1fr; }
+  .sidebar { order: 2; }
+}
