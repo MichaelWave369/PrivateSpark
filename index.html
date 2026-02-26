@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PrivateSpark — Local AI, Beautifully Simple</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar glass">
+        <h1>PrivateSpark</h1>
+        <p class="tagline">Local AI for everyone.</p>
+        <button class="primary-btn">+ New Project</button>
+
+        <nav>
+          <h2>Projects</h2>
+          <ul>
+            <li class="active">Personal Assistant</li>
+            <li>Study Hub</li>
+            <li>Client Research</li>
+            <li>Meeting Notes</li>
+          </ul>
+        </nav>
+
+        <section class="system-card">
+          <h3>Device Status</h3>
+          <p>Detected: 16 GB RAM • Apple Silicon</p>
+          <p class="ok">✅ Great for 7B–13B local models</p>
+        </section>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar glass">
+          <div>
+            <h2>Beginner Mode</h2>
+            <p>Everything runs local by default. No subscriptions. No cloud surprises.</p>
+          </div>
+          <div class="topbar-actions">
+            <button>Import Chat History</button>
+            <button>Privacy Dashboard</button>
+          </div>
+        </header>
+
+        <section class="wizard glass">
+          <h3>First-run wizard</h3>
+          <ol>
+            <li>
+              <span>1</span>
+              <div>
+                <strong>Pick your starter model</strong>
+                <p>We recommend <em>Fast Writer 7B</em> for most laptops.</p>
+              </div>
+              <button>Download 3.8 GB</button>
+            </li>
+            <li>
+              <span>2</span>
+              <div>
+                <strong>Enable voice mode</strong>
+                <p>Uses local Whisper transcription and on-device TTS.</p>
+              </div>
+              <button class="secondary">Setup</button>
+            </li>
+            <li>
+              <span>3</span>
+              <div>
+                <strong>Choose sync option</strong>
+                <p>Stay offline or turn on end-to-end encrypted WebDAV sync.</p>
+              </div>
+              <button class="secondary">Configure</button>
+            </li>
+          </ol>
+        </section>
+
+        <section class="workspace">
+          <article class="chat glass">
+            <div class="chat-header">
+              <h3>Chat</h3>
+              <p>Model: Fast Writer 7B (local)</p>
+            </div>
+            <div class="messages" id="messages">
+              <div class="message ai">Hi! I’m running fully on your device. Drag a PDF, audio file, image, or code folder to begin.</div>
+              <div class="message user">Summarize this week’s meeting notes and draft action items.</div>
+              <div class="message ai">Done. I identified 7 decisions, 5 open risks, and prepared calendar-ready action items.</div>
+            </div>
+            <form id="chat-form">
+              <input id="chat-input" type="text" placeholder="Ask anything..." />
+              <button type="submit">Send</button>
+            </form>
+          </article>
+
+          <article class="panel-stack">
+            <section class="dropzone glass" id="dropzone">
+              <h3>Drop files for instant analysis</h3>
+              <p>PDFs • CSVs • Images • Audio • Code repos</p>
+              <small id="drop-result">No files uploaded yet.</small>
+            </section>
+
+            <section class="model-manager glass">
+              <h3>One-click Model Manager</h3>
+              <ul>
+                <li>
+                  <div>
+                    <strong>Fast Writer 7B</strong>
+                    <p>Best for 8–16 GB RAM • Great for writing and summarization</p>
+                  </div>
+                  <button>Installed</button>
+                </li>
+                <li>
+                  <div>
+                    <strong>Vision Analyst 13B</strong>
+                    <p>Strong at image + document Q&A • Needs 16+ GB RAM</p>
+                  </div>
+                  <button class="secondary">Install</button>
+                </li>
+                <li>
+                  <div>
+                    <strong>Code Pilot 34B (Q4)</strong>
+                    <p>Power users • Best with dedicated GPU</p>
+                  </div>
+                  <button class="secondary">Install</button>
+                </li>
+              </ul>
+            </section>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
