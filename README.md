@@ -1,28 +1,41 @@
-# PrivateSpark
+# PrivateSpark v0.2 Core
 
-PrivateSpark is a beautiful, beginner-friendly interface concept for running local AI models on your own device.
+PrivateSpark is a local-first AI workspace with a beginner-friendly noir UI.
 
-## What this prototype includes
+## Highlights
+- FastAPI backend with local SQLite persistence.
+- Ollama integration for model listing, pulls, chat streaming, and optional embeddings.
+- File ingest (PDF/TXT/MD/CSV/DOCX + image metadata) into searchable Capsules.
+- Full-text search with optional embedding rerank.
+- Privacy tools: local export zip + wipe-all reset.
+- Graceful offline behavior when Ollama is not running.
 
-- Local-first dashboard UI with a **first-run wizard**
-- Clean **chat experience** with beginner-safe language
-- **Drag-and-drop file analysis** placeholder flow
-- Curated **one-click model manager** cards with hardware hints
-- Privacy-forward messaging emphasizing local execution by default
+## Project structure
+- `backend/privatespark`: API, DB, Ollama client, ingest/search/privacy modules
+- `backend/tests`: API tests
+- `web/`: app UI (served by FastAPI)
 
-## Run locally
-
+## Local run (Windows/macOS/Linux)
 ```bash
-python3 -m http.server 4173
+cd backend
+python -m venv .venv
+# Windows: .venv\Scripts\activate
+# macOS/Linux:
+source .venv/bin/activate
+pip install -r requirements.txt
+uvicorn privatespark.main:app --host 0.0.0.0 --port 4173 --reload
+```
+Open <http://localhost:4173>
+
+## Optional Ollama setup
+```bash
+ollama serve
+ollama pull llama3.1:latest
+ollama pull nomic-embed-text
 ```
 
-Then open: <http://localhost:4173>
+## Environment
+Copy `.env.example` and set overrides as needed.
 
-## Vision
-
-This project is intended to evolve toward:
-
-- Ollama / llama.cpp / MLX local runtime integrations
-- Voice mode with Whisper + TTS
-- Offline-first notes, projects, and vector search
-- Optional encrypted sync and explicit cloud fallback controls
+## Privacy promise
+PrivateSpark is local-by-default. External network use is limited to optional local Ollama at `http://localhost:11434`.

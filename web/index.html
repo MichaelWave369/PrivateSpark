@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PrivateSpark Core</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="app-shell">
+      <aside class="sidebar card" aria-label="Projects panel">
+        <h1>PrivateSpark</h1>
+        <p class="muted">Local-first AI for everyone.</p>
+        <div class="row">
+          <input id="new-project-name" aria-label="New project name" placeholder="New project name" />
+          <button id="create-project">Create</button>
+        </div>
+        <ul id="project-list"></ul>
+        <section id="ollama-status" class="status"></section>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar card">
+          <label>Model
+            <select id="model-select" aria-label="Model selector"></select>
+          </label>
+          <input id="search-input" aria-label="Search capsules" placeholder="Search notes/files in this project" />
+          <button id="export-btn">Export</button>
+          <button id="wipe-btn" class="danger">Wipe</button>
+        </header>
+
+        <section id="setup-banner" class="banner hidden" role="status"></section>
+
+        <section class="workspace">
+          <article class="card chat">
+            <div id="messages" class="messages" aria-live="polite"></div>
+            <form id="chat-form" class="row">
+              <input id="chat-input" aria-label="Chat input" placeholder="Ask PrivateSpark…" />
+              <button type="submit">Send</button>
+            </form>
+          </article>
+
+          <article class="card side-panel">
+            <section>
+              <h3>Drop files</h3>
+              <div id="dropzone" tabindex="0">PDF • TXT • MD • CSV • DOCX • Images</div>
+              <input id="file-picker" type="file" class="hidden" />
+              <p id="upload-status" class="muted"></p>
+            </section>
+
+            <section>
+              <h3>Capsules</h3>
+              <ul id="capsule-list"></ul>
+            </section>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
